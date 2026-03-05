@@ -5,15 +5,7 @@ from ex2.EliteCard import EliteCard
 def main() -> None:
     print("=== DataDeck Ability System ===\n")
 
-    warrior = EliteCard(
-        name="Arcane Warrior",
-        cost=6,
-        rarity="Legendary",
-        attack=5,
-        defense=5,
-        health=20,
-        mana_pool=10,
-    )
+    warrior = EliteCard("Arcane Warrior", 6, "Legendary", 5, 5, 20, 10)
 
     goblin = CreatureCard("Goblin Warrior", 2, "Common", 3, 4)
 
