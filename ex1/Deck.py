@@ -18,13 +18,14 @@ class Deck:
         n = len(self.cards_deck)
         if n <= 1:
             return
+        import random
         if n == 2:
             self.cards_deck[0], self.cards_deck[1] = (self.cards_deck[1],
                                                       self.cards_deck[0])
             return
 
         for i in range(n - 1, 0, -1):
-            j = id(object()) % (i + 1)
+            j = random.randint(0, i)
             self.cards_deck[i], self.cards_deck[j] = (self.cards_deck[j],
                                                       self.cards_deck[i])
 

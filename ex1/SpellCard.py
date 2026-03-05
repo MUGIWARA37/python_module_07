@@ -2,10 +2,9 @@ from ex0.Card import Card
 from ex0.CreatureCard import CreatureCard
 
 
-def positive_random(a: int, b: int) -> int:
-    lower = max(1, min(a, b))
-    upper = max(a, b)
-    return lower + (id(object()) % (upper - lower + 1))
+def positive_random() -> int:
+    import random
+    return random.randint(0, 100)
 
 
 def generate_effect_msg(effect_type: str, effect_num: int) -> str:
@@ -32,7 +31,7 @@ class SpellCard(Card):
             )
 
         self.effect_type = effect_type
-        self.effect_num = positive_random(self.cost, id(object()))
+        self.effect_num = positive_random()
         self.effect_msg = generate_effect_msg(self.effect_type,
                                               self.effect_num)
 
