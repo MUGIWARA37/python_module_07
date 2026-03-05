@@ -26,12 +26,12 @@ class CreatureCard(Card):
         if not super().is_playable(mana):
             return {"Playable": False}
         return {
-                "Playable": True,
-                "Play result": {
-                    "card_played": self.name,
-                    "mana_used": self.cost,
-                    "effect": f"{self.name} summoned to battlefield"
-                }
+            "Playable": True,
+            "Play result": {
+                "card_played": self.name,
+                "mana_used": self.cost,
+                "effect": f"{self.name} summoned to battlefield"
+            }
         }
 
     def get_card_info(self) -> dict:
