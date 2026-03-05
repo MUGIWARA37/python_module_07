@@ -31,7 +31,7 @@ if __name__ == "__main__":
             print(f"Playable: {next_play['Playable']}")
             print(f"Play result: {next_play['Play result']}")
         except Exception:
-            ...
+            pass
         print("\nAbstract pattern successfully demonstrated!")
     except Exception as e:
         print(e)

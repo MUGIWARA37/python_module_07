@@ -43,7 +43,7 @@ if __name__ == "__main__":
             CreatureCard("Desert Eagle", 5, "Common", 5, 2)
         ]
 
-        print("Building deck with different card types...")
+        print("Building deck with different card typespass")
         print(f"Deck stats: {deck.get_deck_stats()}\n")
 
         deck.shuffle()
