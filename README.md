@@ -32,4 +32,46 @@ By the end of this module, you should be able to:
 
 This module develops the critical skills required for **senior game architecture**, **system design**, and **advanced software engineering**.
 
-Would you like me to help you draft the `Card` abstract base class for **Exercise 0**?
+---
+
+### Project Structure
+
+```bash
+datadeck/
+│
+├── ex0/
+│   ├── __init__.py
+│   ├── Card.py
+│   ├── CreatureCard.py
+│   └── main.py
+│
+├── ex1/
+│   ├── __init__.py
+│   ├── SpellCard.py
+│   ├── ArtifactCard.py
+│   ├── Deck.py
+│   └── main.py
+│
+├── ex2/
+│   ├── __init__.py
+│   ├── Ability.py
+│   ├── DamageAbility.py
+│   ├── HealAbility.py
+│   ├── BuffAbility.py
+│   ├── DebuffAbility.py
+│   └── main.py
+│
+├── ex3/
+│   ├── __init__.py
+│   ├── GameEngine.py
+│   ├── Player.py
+│   ├── GameState.py
+│   └── main.py
+│
+└── ex4/
+    ├── __init__.py
+    ├── Tournament.py
+    ├── Match.py
+    ├── RankingSystem.py
+    └── main.py
+```
