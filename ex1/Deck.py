@@ -16,12 +16,19 @@ class Deck:
 
     def shuffle(self) -> None:
         n = len(self.cards_deck)
+        if n <= 1:
+            return
+        if n == 2:
+            self.cards_deck[0], self.cards_deck[1] = (self.cards_deck[1],
+                                                      self.cards_deck[0])
+            return
 
         for i in range(n - 1, 0, -1):
             j = id(object()) % (i + 1)
-            self.cards_deck[i], self.cards_deck[j] = self.cards_deck[j],
-            self.cards_deck[i]
-        print("Your Deck is sheffled")
+            self.cards_deck[i], self.cards_deck[j] = (self.cards_deck[j],
+                                                      self.cards_deck[i])
+
+        print("Your deck is shuffled")
 
     def draw_card(self) -> Card:
         try:
@@ -46,7 +53,7 @@ class Deck:
             elif card.__class__.__name__ == "ArtifactCard":
                 artifacts += 1
             avg_cost += card.cost
-        avg_cost /= total_cards
+        avg_cost = round(avg_cost / total_cards, 2)
 
         return {
             'total_cards': total_cards,

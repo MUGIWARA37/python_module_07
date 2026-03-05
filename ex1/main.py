@@ -2,60 +2,59 @@ from .SpellCard import SpellCard, CreatureCard
 from .ArtifactCard import ArtifactCard
 from .Deck import Deck
 
-
-def spells_caller(spell: SpellCard, player: dict) -> None:
-    print(f"Drew: {spell.name} (Spell)")
-    if spell.play(player).get('Playable'):
-        print(f"Play result: {spell.resolve_effect(targets)}")
-        spell.use_time = 0
-    else:
-        print("Not enaught mana to use the spell!")
-
-
-def artifact_caller(artifact: ArtifactCard) -> None:
-    print(f"\nDrew: {artifact.name} (Artifact)")
-    if artifact.durability <= 0:
-        print(f"{artifact.name} lost it's power you can't use it any more !!")
-    elif artifact.play(player1).get('Playable'):
-        print(f"Play result: {artifact.activate_ability()}")
-        artifact.durability -= 1
-    else:
-        print("Not enaught Mana ")
-
-
-def creature_summoning(creature: CreatureCard, player: dict) -> None:
-    print(f"\nDrew: {creature.name} (Creature)")
-    if creature.health <= 0:
-        print(f"{creature.name} is Dead !!")
-    elif creature.play(player).get('Playable'):
-        print(f"Play result: {creature.play(player).get('Play result')}")
-
-
 if __name__ == "__main__":
     try:
         print("\n=== DataDeck Deck Builder ===\n")
 
         player1 = {"name": "Reda", "player_mana": 100}
         deck = Deck()
-        deck.add_card(SpellCard('Lightning Bolt', 3, 'Legendary', 'damage'))
-        deck.add_card(ArtifactCard('Fire Scorpian Charme', 2, 'Commone', 10,
-                      '+10% to Fire Damage'))
-        deck.add_card(CreatureCard('Fire Dragon', 5, 'Legendary', 10, 20))
 
+        # Spells
+        deck.add_card(SpellCard('Ice Shard', 2, 'Rare', 'damage'))
+        deck.add_card(SpellCard('Healing Light', 4, 'Epic', 'heal'))
+        deck.add_card(SpellCard('Wind Gust', 1, 'Common', 'debuff'))
+        deck.add_card(SpellCard('Lightning Bolt', 3, 'Legendary', 'damage'))
+        deck.add_card(SpellCard('Earthquake', 5, 'Epic', 'damage'))
+
+        # Artifacts
+        deck.add_card(ArtifactCard('Dragon Scale Shield', 5, 'Legendary', 8,
+                                   '+20% defense for dragon creatures'))
+        deck.add_card(ArtifactCard('Mana Crystal', 3, 'Rare', 2,
+                                   '+5 mana per turn'))
+        deck.add_card(ArtifactCard('Shadow Amulet', 2, 'Epic', 1,
+                                   'Increase stealth of all creatures'))
+        deck.add_card(ArtifactCard('Phoenix Feather', 4, 'Rare', 3,
+                                   'Revive 1 creature'))
+
+        # Creatures
+        deck.add_card(CreatureCard('Water Serpent', 3, 'Rare', 6, 8))
+        deck.add_card(CreatureCard('Earth Golem', 6, 'Epic', 15, 25))
+        deck.add_card(CreatureCard('Thunder Phoenix', 4, 'Legendary', 12, 18))
+        deck.add_card(CreatureCard('Goblin Scout', 1, 'Common', 2, 3))
+        deck.add_card(CreatureCard('Forest Elf', 2, 'Rare', 3, 4))
+        deck.add_card(CreatureCard('Necromancer', 5, 'Epic', 8, 12))
+        deck.add_card(CreatureCard('Fire Dragon', 5, 'Legendary', 10, 20))
+        deck.add_card(CreatureCard('Ice Golem', 4, 'Rare', 7, 10))
+
+        # Targets for spell effects
         targets = [
             CreatureCard("Fire Dragon", 5, "Legendary", 5, 5),
             CreatureCard("Goblin Warrior", 5, "Epic", 5, 5),
-            CreatureCard("Desert Eagle", 5, "Commone", 5, 2)
+            CreatureCard("Desert Eagle", 5, "Common", 5, 2)
         ]
 
-        print("\nDrawing and playing cards:\n")
-        spells_caller(deck.draw_card, player1)
+        print("Building deck with different card types...")
+        print(f"Deck stats: {deck.get_deck_stats()}\n")
 
-        artifact_caller(deck.draw_card)
+        deck.shuffle()
+        for card in deck.cards_deck:
+            print(f"Drew: {card.name} ({card.type})")
+            play_result = card.play(player1)
+            print(f"Play result: {play_result.get('Play result')}\n")
+            if isinstance(card, SpellCard):
+                card.resolve_effect(targets)
 
-        creature_summoning(deck.draw_card, player1)
+        print("Polymorphism in action: Same interface, different card behaviors!")
 
-        print("\nPolymorphism in action: Same interface, different"
-              " card behaviors!")
     except Exception as e:
         print(f"Error: {e}")

@@ -25,6 +25,7 @@ class SpellCard(Card):
     def __init__(self, name: str, cost: int, rarity: str, effect_type: str):
         super().__init__(name, cost, rarity)
         self.use_time = 1
+        self.type = "Spell"
         if effect_type not in ('damage', 'heal', 'buff', 'debuff'):
             raise ValueError(
                 "Spell Lost in the Void!! (incorrect effect_type)"

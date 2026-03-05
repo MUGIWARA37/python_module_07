@@ -6,6 +6,7 @@ class CreatureCard(Card):
                  health: int) -> None:
         super().__init__(name, cost, rarity)
         self.attack = attack
+        self.type = "Creature"
         if self.attack < 0:
             self.attack = 0
             print("attack power can't be NEGATIVE !! setting the default "
