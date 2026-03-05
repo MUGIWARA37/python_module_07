@@ -54,7 +54,8 @@ if __name__ == "__main__":
             if isinstance(card, SpellCard):
                 card.resolve_effect(targets)
 
-        print("Polymorphism in action: Same interface, different card behaviors!")
+        print("Polymorphism in action: Same interface, "
+              "different card behaviors!")
 
     except Exception as e:
         print(f"Error: {e}")
