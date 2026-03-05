@@ -12,7 +12,7 @@ class Deck:
         try:
             self.cards_deck.remove(card_name)
         except ValueError:
-            print(f"{card_name} not in your deck !!")
+            raise ValueError(f"{card_name} not in your deck !!")
 
     def shuffle(self) -> None:
         n = len(self.cards_deck)
@@ -29,7 +29,7 @@ class Deck:
             self.cards_deck.pop(0)
             return card
         except Exception:
-            print("Your deck is empty!!")
+            raise ValueError("Your deck is empty!!")
 
     def get_deck_stats(self) -> dict:
         total_cards = len(self.cards_deck)
