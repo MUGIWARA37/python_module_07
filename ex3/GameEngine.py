@@ -17,7 +17,6 @@ class GameEngine:
     def configure_engine(
         self, factory: CardFactory, strategy: GameStrategy
     ) -> None:
-        """Plug in a factory and a strategy, build deck, draw opening hand."""
         self._factory = factory
         self._strategy = strategy
 
@@ -47,7 +46,6 @@ class GameEngine:
             self._hand.append(self._deck.draw_card())
 
     def simulate_turn(self) -> dict:
-        """Run one turn using the configured strategy."""
         if not self._factory or not self._strategy:
             raise RuntimeError(
                 "Engine not configured. Call configure_engine first."
