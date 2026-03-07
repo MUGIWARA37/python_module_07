@@ -47,11 +47,14 @@ class TournamentPlatform:
 
     def get_leaderboard(self) -> list:
 
-        ranked = sorted(
-            self._cards.items(),
-            key=lambda item: item[1].calculate_rating(),
-            reverse=True,
-        )
+        items = list(self._cards.items())
+        n = len(items)
+        for i in range(n - 1):
+            for j in range(n - 1 - i):
+                if (items[j][1].calculate_rating()
+                   < items[j + 1][1].calculate_rating()):
+                    items[j], items[j + 1] = items[j + 1], items[j]
+        ranked = items
         leaderboard = []
         for rank, (card_id, card) in enumerate(ranked, start=1):
             info = card.get_rank_info()
