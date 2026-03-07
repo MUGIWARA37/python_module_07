@@ -106,8 +106,11 @@ class TournamentCard(Card, Combatable, Rankable):
         }
 
     def get_tournament_stats(self) -> dict:
-        return {
-            **self.get_card_info(),
-            **self.get_rank_info(),
-            **self.get_combat_stats(),
-        }
+        stats = {}
+        for key, val in self.get_card_info().items():
+            stats[key] = val
+        for key, val in self.get_rank_info().items():
+            stats[key] = val
+        for key, val in self.get_combat_stats().items():
+            stats[key] = val
+        return stats

@@ -15,9 +15,10 @@ class Card(ABC):
         self.cost = cost
         self.rarity = Rarity(rarity)
 
-    @abstractmethod
     def play(self, game_state: dict) -> dict:
         pass
+
+    play = abstractmethod(play)
 
     def is_playable(self, available_mana: int) -> bool:
         return self.cost <= available_mana
