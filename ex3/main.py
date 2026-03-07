@@ -31,12 +31,13 @@ def main() -> None:
     for key, val in turn['turn_execution'].items():
         print(f"  {key}: {val}")
 
-    print(f"\nGame Report:")
+    print("\nGame Report:")
     report = engine.get_engine_status()
     for key, val in report.items():
         print(f"  {key}: {val}")
 
-    print("\nAbstract Factory + Strategy Pattern: Maximum flexibility achieved!")
+    print("\nAbstract Factory + Strategy Pattern: Maximum "
+          "flexibility achieved!")
 
 
 if __name__ == "__main__":
