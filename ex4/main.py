@@ -25,7 +25,7 @@ def main() -> None:
         print(f"\n{card.name} (ID: {card_id}):")
         print("  - Interfaces: [Card, Combatable, Rankable]")
         print(f"  - Rating: {info['rating']}")
-        print(f"  - Record: {info['record']}")
+        print(f"  - Record: {info['record']}\n")
 
     print("\nCreating tournament matches...")
     match1 = platform.create_match(dragon_id, wizard_id)
