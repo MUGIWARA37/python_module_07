@@ -4,6 +4,7 @@ from ex0.Card import Card
 from ex0.CreatureCard import CreatureCard
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
+from ex1.Deck import Deck
 
 
 CREATURES = {
@@ -81,18 +82,18 @@ class FantasyCardFactory(CardFactory):
         return ArtifactCard(name, cost, rarity, durability, effect)
 
     def create_themed_deck(self, size: int) -> dict:
-        deck = []
+        deck = Deck()
         for i in range(size):
             roll = i % 3
             if roll == 0:
-                deck.append(self.create_creature())
+                deck.add_card(self.create_creature())
             elif roll == 1:
-                deck.append(self.create_spell())
+                deck.add_card(self.create_spell())
             else:
-                deck.append(self.create_artifact())
+                deck.add_card(self.create_artifact())
         return {
             'theme': 'Elden Ring',
-            'size': len(deck),
+            'size': size,
             'cards': deck,
         }
 
