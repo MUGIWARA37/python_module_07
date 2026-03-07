@@ -5,6 +5,7 @@ from enum import Enum
 class Rarity(Enum):
     COMMON = "Common"
     UNCOMMON = "Uncommon"
+    Epic = "Epic"
     RARE = "Rare"
     LEGENDARY = "Legendary"
 
