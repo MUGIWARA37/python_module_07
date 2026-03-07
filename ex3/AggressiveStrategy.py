@@ -39,7 +39,7 @@ class AggressiveStrategy(GameStrategy):
             if mana_used + card.cost > mana_available:
                 break
             result = card.play(game_state)
-            if result.get("Playable") is False:
+            if not result.get("Playable"):
                 continue
             cards_played.append(card.name)
             mana_used += card.cost
