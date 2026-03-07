@@ -54,7 +54,7 @@ class Deck:
             elif card.__class__.__name__ == "ArtifactCard":
                 artifacts += 1
             avg_cost += card.cost
-        avg_cost = round(avg_cost / total_cards, 2)
+        avg_cost = round(avg_cost / total_cards, 2) if total_cards else 0
 
         return {
             'total_cards': total_cards,
@@ -63,3 +63,6 @@ class Deck:
             'artifacts': artifacts,
             'avg_cost': avg_cost,
         }
+
+    def __len__(self) -> int:
+        return len(self.cards_deck)

@@ -16,9 +16,10 @@ def main() -> None:
     print(f"Strategy: {strategy.get_strategy_name()}")
 
     supported = factory.get_supported_types()
-    print(f"Creatures available: {supported['creatures']}\n")
-    print(f"Spells available:    {supported['spells']}\n")
-    print(f"Artifacts available: {supported['artifacts']}\n")
+    print("\nAvailable types:")
+    print(f"  Creatures: {supported['creatures']}\n")
+    print(f"  Spells: {supported['spells']}\n")
+    print(f"  Artifacts: {supported['artifacts']}\n")
 
     print("\nSimulating aggressive turn...")
     turn = engine.simulate_turn()
@@ -36,12 +37,9 @@ def main() -> None:
     for key, val in report.items():
         print(f"  {key}: {val}")
 
-    print("\nAbstract Factory + Strategy Pattern: Maximum "
-          "flexibility achieved!")
+    print("\nAbstract Factory + Strategy Pattern: "
+          "Maximum flexibility achieved!")
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        print(f"Error: {e}")
+    main()
