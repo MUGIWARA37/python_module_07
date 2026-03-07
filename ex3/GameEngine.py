@@ -60,7 +60,7 @@ class GameEngine:
         }
 
     def get_engine_status(self) -> dict:
-        """Return a summary report of the engine's activity."""
+
         return {
             'turns_simulated': self._turns_simulated,
             'strategy_used': (
