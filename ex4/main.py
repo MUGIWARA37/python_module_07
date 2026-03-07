@@ -19,7 +19,7 @@ def main() -> None:
     for card_id, card in [
         (dragon_id, dragon),
         (wizard_id, wizard),
-        (knight_id, knight),
+        (knight_id, knight)
     ]:
         info = card.get_rank_info()
         print(f"\n{card.name} (ID: {card_id}):")
